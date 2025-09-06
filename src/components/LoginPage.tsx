@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
+import heroImage from '@/assets/retro-hero.jpg';
 
 const LoginPage: React.FC = () => {
   const { login } = useAuth();
@@ -30,20 +31,26 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden">
+      {/* Hero Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-20"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      />
+      
       {/* Animated Background Grid */}
-      <div className="absolute inset-0 retro-grid opacity-20" />
+      <div className="absolute inset-0 retro-grid opacity-30" />
       
       {/* Scan Lines Effect */}
       <div className="scan-lines" />
 
       {/* Login Card */}
       <div className="relative z-10 w-full max-w-md">
-        <div className="retro-card text-center">
+        <div className="retro-card text-center hover-glow">
           {/* Logo */}
           <div className="mb-8">
-            <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-primary to-accent border-4 border-primary animate-glow-pulse" />
-            <h1 className="retro-title mb-2">RetroBlock</h1>
-            <p className="font-pixel text-sm text-accent">
+            <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-primary to-accent border-4 border-primary animate-glow-pulse circuit-pattern" />
+            <h1 className="retro-title mb-2 animate-neon-glow">RetroBlock</h1>
+            <p className="font-pixel text-sm text-accent text-glow">
               The Pixelated Blog Platform
             </p>
           </div>
@@ -66,11 +73,11 @@ const LoginPage: React.FC = () => {
               {isLoading ? (
                 <>
                   <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                  <span>Connecting...</span>
+                  <span className="loading-dots">Connecting</span>
                 </>
               ) : (
                 <>
-                  <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 image-pixelated" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
                       d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -98,6 +105,11 @@ const LoginPage: React.FC = () => {
               <p className="font-mono-retro text-xs text-muted-foreground">
                 Welcome to the retro future of blogging
               </p>
+              <div className="mt-2 flex justify-center space-x-2">
+                <div className="w-2 h-2 bg-primary animate-pulse" />
+                <div className="w-2 h-2 bg-accent animate-pulse" style={{ animationDelay: '0.2s' }} />
+                <div className="w-2 h-2 bg-primary animate-pulse" style={{ animationDelay: '0.4s' }} />
+              </div>
             </div>
           </div>
         </div>

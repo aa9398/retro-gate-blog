@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Link, useLocation } from 'react-router-dom';
 import { LogOut, Home, User, PenTool } from 'lucide-react';
+import Footer from './Footer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -16,7 +17,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Retro Grid Background */}
       <div className="fixed inset-0 retro-grid opacity-30 pointer-events-none" />
       
@@ -28,8 +29,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent border-2 border-primary" />
+            <Link to="/" className="flex items-center space-x-2 hover-glow">
+              <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent border-2 border-primary circuit-pattern" />
               <h1 className="font-pixel text-xl text-primary animate-neon-glow">
                 RetroBlock
               </h1>
@@ -100,9 +101,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </header>
 
       {/* Main Content */}
-      <main className="relative z-10 container mx-auto px-4 py-8">
+      <main className="relative z-10 container mx-auto px-4 py-8 flex-1">
         {children}
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
