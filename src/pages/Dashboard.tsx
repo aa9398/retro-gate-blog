@@ -1,21 +1,21 @@
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import LoginPage from '@/components/LoginPage';
 import Layout from '@/components/Layout';
-import Feed from './Feed';
+import DashboardContent from './DashboardContent';
+import { Navigate } from 'react-router-dom';
 
-const Index = () => {
+const Dashboard = () => {
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
-    return <LoginPage />;
+    return <Navigate to="/" replace />;
   }
 
   return (
     <Layout>
-      <Feed />
+      <DashboardContent />
     </Layout>
   );
 };
 
-export default Index;
+export default Dashboard;

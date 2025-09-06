@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -58,6 +59,10 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        pixel: ['Press Start 2P', 'Space Mono', 'monospace'],
+        'mono-retro': ['Space Mono', 'monospace'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -80,10 +85,63 @@ export default {
             height: "0",
           },
         },
+        "glow-pulse": {
+          "0%": {
+            opacity: "0.4",
+            filter: "blur(4px)",
+          },
+          "100%": {
+            opacity: "0.8",
+            filter: "blur(8px)",
+          },
+        },
+        "scan-lines": {
+          "0%": {
+            transform: "translateY(0)",
+          },
+          "100%": {
+            transform: "translateY(4px)",
+          },
+        },
+        "grid-move": {
+          "0%": {
+            transform: "translate(0, 0)",
+          },
+          "100%": {
+            transform: "translate(30px, 30px)",
+          },
+        },
+        "neon-glow": {
+          "0%, 100%": {
+            textShadow: "0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor",
+          },
+          "50%": {
+            textShadow: "0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor",
+          },
+        },
+        "retro-bounce": {
+          "0%, 20%, 53%, 80%, 100%": {
+            transform: "translate3d(0, 0, 0)",
+          },
+          "40%, 43%": {
+            transform: "translate3d(0, -8px, 0)",
+          },
+          "70%": {
+            transform: "translate3d(0, -4px, 0)",
+          },
+          "90%": {
+            transform: "translate3d(0, -2px, 0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite alternate",
+        "scan-lines": "scan-lines 0.1s linear infinite",
+        "grid-move": "grid-move 20s linear infinite",
+        "neon-glow": "neon-glow 2s ease-in-out infinite",
+        "retro-bounce": "retro-bounce 1s ease-in-out",
       },
     },
   },
